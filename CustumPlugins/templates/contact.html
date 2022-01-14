@@ -1,0 +1,6 @@
+{% load i18n %}
+
+<ul class="d-flex align-items-center justify-content-end right-links">
+    <li class="phone"><span>{% trans 'WhatsApp Number' %}</span> <a href="{{instance.whatsapp_url}}send?phone={{instance.service_number}}">{{ instance.service_number }}</a></li>
+    <li class="call-us"><span>{% trans 'PADA number' %}</span> <a href="tel:{{ instance.authority_number }}">{{ instance.authority_number }}</a></li>
+</ul>
