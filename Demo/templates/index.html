@@ -556,17 +556,18 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Sales <span>| Today</span></h5>
-
+                  {% for i in instance %}
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
-                      <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+                      <h6>{{i.first_name}}</h6>
+                      <span class="text-success small pt-1 fw-bold"></span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      {{i.company_name|safe}}
                     </div>
                   </div>
+                  {% endfor %}
                 </div>
 
               </div>
@@ -591,17 +592,18 @@
 
                 <div class="card-body">
                   <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
+                  {% for i in contact %}
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                      <h6>{{i.service_number}}</h6>
+                      <span class="text-success small pt-1 fw-bold">{{i.authority_number}}</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                     </div>
                   </div>
+                 {% endfor %} 
                 </div>
 
               </div>
@@ -838,17 +840,28 @@
                         <td class="fw-bold">124</td>
                         <td>$5,828</td>
                       </tr>
-
+                      
                     <ul class="d-flex align-items-center justify-content-end right-links">
                         <li class="phone"><span></span> <a href="{{instance.whatsapp_url}}">{{ instance.whatsapp_url }}</a></li>
                         <li class="call-us"><span> number</span> <a href="">{{ instance.authority_number }}</a></li>
                   </ul>
+                 
                       <tr>
+                        {% block contents1 %}
+          
+                    
+          
+                    
+                        {% for i in admin %}
                         <th scope="row"><a href="#"><img src="/static/assets/img/product-3.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
+                        <td><a href="#" class="text-primary fw-bold">{{i.name}}</a></td>
+                        <td>{{i.contact_number}}</td>
+                        {% placeholder "content1" %}
                         <td class="fw-bold">74</td>
-                        <td>$4,366</td>
+                        <td>{{i.about_us|safe}}</td>
+                        {% endfor %}
+                    
+                        {% endblock contents1 %}
                       </tr>
                       <tr>
                         <th scope="row"><a href="#"><img src="/static/assets/img/product-4.jpg" alt=""></a></th>
@@ -1131,11 +1144,7 @@
                 <div class="post-item clearfix">
                   <img src="/static/assets/img/news-1.jpg" alt="">
                   <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>{% block contents1 %}
-          
-                    {% placeholder "content1" %}
-          
-                    {% endblock contents1 %}</p>
+                  <p></p>
                 </div>
 
                 <div class="post-item clearfix">

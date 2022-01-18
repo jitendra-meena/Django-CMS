@@ -21,7 +21,7 @@ class DataPlugin(CMSPluginBase):
 class UserData(CMSPluginBase):
     model = UserList
     name = _("Users details")
-    render_template = "userdata.html"
+    render_template = "user.html"
     cache = False
 
     def render(self, context, instance, placeholder):
@@ -38,5 +38,7 @@ class ContactNumbers(CMSPluginBase):
     def render(self, contaxt, instance, placeholder):
         context = super().render(contaxt ,instance ,placeholder)
         return contaxt
+
+
 
 

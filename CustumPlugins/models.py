@@ -20,7 +20,11 @@ class UserList(CMSPlugin):
 class AdminInformations(CMSPlugin):
     name =  models.CharField(max_length = 50, default ='Admin')
     contact_number = models.IntegerField(null = True)
-    about_us = HTMLField()         
+    about_us = HTMLField()    
+
+    def __str__(self):
+        return self.name     
+
 
 
 class ContactNumber(CMSPlugin):
@@ -34,6 +38,10 @@ class ContactNumber(CMSPlugin):
     class Meta:
         verbose_name = _("Contact Number")
         verbose_name_plural = _("Contact Number")
+
+    
+
+
 
 
 
